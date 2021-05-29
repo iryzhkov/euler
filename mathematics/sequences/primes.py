@@ -3,8 +3,6 @@
 from mathematics.numbers import isqrt
 from mathematics.algorithms import binary_search
 
-import numpy as np
-
 MAX_SEARCH_SIZE = 20000000
 
 

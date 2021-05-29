@@ -28,12 +28,7 @@ def execute_solution(n):
     script_path = os.path.join(solution_path, "script.py")
     input_path = os.path.join(solution_path, "input.txt")
 
-    process_input = None
-    if os.path.exists(input_path):
-        with open(input_path, "r") as f:
-            process_input = f.read()
-
-    result = run(["python3", script_path], stdout=PIPE, stderr=PIPE, text=True, input=process_input)
+    result = run(["./execute.sh", script_path, input_path], stdout=PIPE, stderr=PIPE, text=True)
     print("Problem #{} => {}".format(n, result.stdout.strip("\n")))
 
 if __name__ == "__main__":
@@ -42,7 +37,6 @@ if __name__ == "__main__":
         print("Currently solved problems:")
         print(solved_problems)
     elif args.which == "execute":
-        print("Starting the execution...")
         problems = set(solved_problems)
         for n in args.solutions:
             if n in problems:
