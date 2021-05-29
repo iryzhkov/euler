@@ -1,16 +1,13 @@
-from mathematics.sequences import Primes
-from mathematics.numbers.decompose import decompose_full
+max_digits = int(input())
 
-n = int(input())
+def is_palindrome(n):
+    s = str(n)
+    return s == s[::-1]
 
-decompositions = [decompose_full(i) for i in range(1, n+1)]
-max_length = max(map(len, decompositions))
-powers = [0] * max(map(len, decompositions))
-for decomposition in decompositions:
-    for i in range(len(decomposition)):
-        powers[i] = max(powers[i], decomposition[i])
-
-result = 1
-for i, p in enumerate(powers):
-    result *= Primes(i) ** p
-print(result)
+max_palindrome = 0
+for i in range(10 ** max_digits - 1, 10 ** (max_digits - 1), -1):
+    for j in range(10 ** max_digits - 1, i - 1, -1):
+        n = i * j
+        if is_palindrome(n):
+            max_palindrome = max(max_palindrome, n)
+print(max_palindrome)

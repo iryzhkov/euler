@@ -3,7 +3,7 @@
 from mathematics.numbers import isqrt
 from mathematics.algorithms import binary_search
 
-MAX_SEARCH_SIZE = 20000000
+MAX_SEARCH_SIZE = 1000000
 
 
 class MetaPrimes(type):
