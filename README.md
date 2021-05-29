@@ -1,5 +1,7 @@
 # Project Euler
 
+[![Build Status](https://travis-ci.com/iryzhkov/euler.svg?branch=main)](https://travis-ci.com/iryzhkov/euler)
+
 The solutions for the [Project Euler](https://projecteuler.net/about).
 
 To see avavilable solutions run:
