@@ -1,6 +1,5 @@
-import numpy as np
+num_digits, n = map(int, input().split())
+numbers = [int(input()) for _ in range(n)]
 
-height, width, n = map(int, input().split())
-array = [list(map(int, input().split())) for _ in range(height)]
-array = np.array(array)
-print("not solved yet")
+result = str(sum(numbers))[:num_digits]
+print(result)

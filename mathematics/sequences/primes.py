@@ -16,6 +16,9 @@ class MetaPrimes(type):
         Returns:
             True is n is prime, False otherwise.
         """
+        if n < 2:
+            return False
+
         n_sqrt = isqrt(n)
         cls.update(n_sqrt)
         for prime in cls._primes:
@@ -77,6 +80,19 @@ class Primes(metaclass=MetaPrimes):
         """
         cls._primes = [2]
         cls._last_checked = 2
+    
+    @classmethod
+    def indexOf(cls, prime):
+        """Finds the index of the prime.
+
+        Args:
+            prime: the prime to find the index of.
+
+        Returns:
+            The index of the prime.
+        """
+        cls.update(prime)
+        return binary_search(cls._primes, prime)
 
     @classmethod
     def update(cls, n: int):
